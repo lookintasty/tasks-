@@ -1,0 +1,42 @@
+#Вводится вектор. Вывести максимум из его элементов.
+#Ввод: 6 64 89 222 13 62 5
+x = list(map(int, input().split()))
+print(max(x))
+#Вывод: 222
+
+#Напишите программу, которая помогает определить какие вещи могут поместиться в рюкзак. Вводится существующий объем рюкзака.....
+#Ввод: 20
+#Ввод: 2 4 8 12 16
+volume=int(input())
+objects=input()
+objects_list=[int(x) for x in objects.split()]
+objects_list.sort()
+total_sum=0
+objects_sum=[]
+for i in range(len(objects_list)):
+    if total_sum+objects_list[i]<volume:
+        total_sum+=objects_list[i]
+        objects_sum.append(objects_list[i])
+print(objects_sum)
+#Вывод: [2, 4, 8]
+
+#Вводится вектор. Заменить в нём каждое число Фибоначчи на следующее.
+#Вводится вектор.Заменить в нем каждое число Фибоначчи на следующее
+n = [6, 64, 89, 222, 13, 62, 5]
+fib = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711]
+for i in range(len(n)):
+    if n[i] in fib:
+        fib_index = fib.index(n[i])
+        n[i] = fib[fib_index + 1]
+print(n)
+#Вывод: [6, 64, 144, 222, 21, 62, 8]
+
+#Данные об email-адресах студентов хранятся в словаре: {домен:логины} . Нужно дополнить код таким образом, чтобы он вывел все адреса в алфавитном порядке и в формате имя_пользователя@домен
+emails = {'rea.ru': ['misha', 'pasha'],
+'study.com': ['olga', 'nastay', 'igor']}
+print(*sorted({i + '@' + k for k, v in emails.items() for i in v}), sep = '\n')
+#Вывод:igor@study.com
+#misha@rea.ru
+#nastay@study.com
+#olga@study.com
+#pasha@rea.ru
